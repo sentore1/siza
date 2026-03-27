@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { TrendingUp, Users, MousePointer, Eye, Globe, Monitor, Smartphone, Clock } from 'lucide-react'
 import { supabase } from '../lib/supabase'
+import { formatPrice } from '../lib/currency'
 
 interface Analytics {
   pageViews: any[]
@@ -145,7 +146,7 @@ export default function AnalyticsPanel() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-500">Revenue</p>
-              <p className="text-2xl font-bold">${stats.totalRevenue.toFixed(2)}</p>
+              <p className="text-2xl font-bold">{formatPrice(stats.totalRevenue, 'RWF')}</p>
             </div>
             <TrendingUp className="w-8 h-8 text-green-500" />
           </div>

@@ -121,6 +121,17 @@ export async function PATCH(request: NextRequest) {
       }, { status: 500 })
     }
 
+    // Track conversion when order is marked as completed
+    if (status === 'completed' && data) {
+      const orderTotal = data.total_amount || data.total || 0
+      await supabase.from('conversion_events').insert({
+        event_type: 'purchase',
+        order_id: orderId,
+        amount: orderTotal,
+        currency: 'RWF'
+      })
+    }
+
     return NextResponse.json({ success: true, order: data })
   } catch (error: any) {
     console.error('PATCH orders exception:', error)

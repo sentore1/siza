@@ -160,7 +160,7 @@ export default function Home() {
     hero_title_font: 'inherit',
     hero_title_size: 48,
     product_zoom_type: 'simple',
-    homepage_product_limit: 8
+    homepage_product_limit: 16
   })
 
   const [cartCount, setCartCount] = useState(0)
@@ -241,7 +241,7 @@ export default function Home() {
     return matchesSearch && matchesCategory
   })
 
-  const limit = siteSettings.homepage_product_limit || 8
+  const limit = siteSettings.homepage_product_limit || 16
   const displayedProducts = filteredProducts.slice(0, limit)
   const hasMore = filteredProducts.length > limit
 

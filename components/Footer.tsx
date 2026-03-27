@@ -96,7 +96,7 @@ export default function Footer() {
                   animation: 'gradient 3s ease infinite'
                 }}
               >
-                @emmanuel
+                @Emmanuel
               </a>
             </p>
           </div>
