@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Search, ShoppingCart, User, Menu, X } from 'lucide-react'
 import Navbar from '../components/Navbar'
+import WhatsAppChat from '../components/WhatsAppChat'
 import { supabase } from '../lib/supabase'
 import { formatPrice, formatPriceShort } from '../lib/currency'
 
@@ -248,6 +249,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar searchTerm={searchTerm} onSearchChange={setSearchTerm} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} categories={categories} siteLogo={siteSettings.site_logo} siteName={siteSettings.site_name} headerStyle={siteSettings.header_style} logoSize={60} />
+      <WhatsAppChat />
       
       {siteSettings.show_hero && (
         <div className="max-w-7xl mx-auto px-4 my-4"><HeroSection section={siteSettings} /></div>
